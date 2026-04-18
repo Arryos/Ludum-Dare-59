@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         // register to actions
         actionMap.FindAction("Target").started += OnTarget;
+        actionMap.FindAction("Scroll").started += OnScroll;
     }
 
     private void OnDisable()
@@ -79,10 +80,12 @@ public class PlayerController : MonoBehaviour
 
         // unregister to actions
         actionMap.FindAction("Target").started -= OnTarget;
-    }
+		actionMap.FindAction("Scroll").started -= OnScroll;
 
-    // Update is called once per frame
-    void Update()
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
         controller.Move(move * m_speed * Time.deltaTime);
@@ -246,6 +249,13 @@ public class PlayerController : MonoBehaviour
 
         //lastMoveDir = LookDirection;
     }
+
+	private void OnScroll(InputAction.CallbackContext context)
+	{
+		//Debug.Log(" test" + context.ReadValue<Vector2>());
+		//TODO change frequence 
+
+	}
 
     private void MouseTarget()
     {

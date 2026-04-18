@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3477643319172358557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'pew pew '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8558960869827352355}
   - component: {fileID: 6339684703133682017}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 445708079187880841}
   - component: {fileID: 8311429322690253668}
   - component: {fileID: 2246241204550840246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3058732491198076432}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CamParentAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 6271265842997608783}
   - component: {fileID: 1253443626147216613}
   - component: {fileID: 6159824605280094094}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: looking arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 1551039559698721376}
   - component: {fileID: 144009195867308886}
   - component: {fileID: 7069897056503779171}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 9173148069259630389}
   - component: {fileID: 2095828327652586391}
   - component: {fileID: 1205904093968644159}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 7320637552742880121}
   - component: {fileID: 2637581817896145813}
   - component: {fileID: 9011317041208537561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 6788449491589706063}
   - component: {fileID: 7787002229568765675}
   - component: {fileID: 5406624448520161453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 6570417201825610730}
   - component: {fileID: 2016113737833717803}
   - component: {fileID: 8008425007666279224}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 8517782822951317547}
   - component: {fileID: 8744052144633947230}
   - component: {fileID: 2737637434409146497}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Potar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7410212780739836592}
   - component: {fileID: 4389257206279664138}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1142,7 +1142,7 @@ GameObject:
   - component: {fileID: 3940990946072051125}
   - component: {fileID: 3112856336986494602}
   - component: {fileID: 3844494713108707993}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 696230491411262956}
   - component: {fileID: 2206464526826198955}
   - component: {fileID: 4547060075636920142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Antenna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1335,7 @@ GameObject:
   - component: {fileID: 1638170132371991263}
   - component: {fileID: 1752188841196171078}
   - component: {fileID: 8866489904090053947}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1446,7 +1446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8779317232745327532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1482,7 +1482,7 @@ GameObject:
   - component: {fileID: 2817532884348326034}
   - component: {fileID: 8676069421986988135}
   - component: {fileID: 18558020978813489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: tv-bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1635,6 +1635,10 @@ PrefabInstance:
     - target: {fileID: 8032696612360228419, guid: 37302114e84d5404c8cf1043d44052e3, type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032696612360228419, guid: 37302114e84d5404c8cf1043d44052e3, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

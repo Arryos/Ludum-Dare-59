@@ -33,17 +33,7 @@ public class PlayerBullet : DamagingObject
 
 	private void OnTriggerEnter(Collider other)
 	{
-		DamagableObject damagable = other.GetComponent<DamagableObject>();
-		if (damagable == null)
-		{
-			Destroy(gameObject);
-			return;
-		}
-
-		if (damagable.Frequency == Frequency)
-		{
-			Destroy(gameObject);
-		}
+		Destroy(gameObject);
 	}
 
 	protected override void OnFrequencyChanged()

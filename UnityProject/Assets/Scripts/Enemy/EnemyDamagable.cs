@@ -7,7 +7,7 @@ public class EnemyDamagable : DamagableObject
 	[SerializeField] private DamagingObject damagingObject;
 
 	[Header("Shield")]
-	[SerializeField] private SphereCollider collider;
+	[SerializeField] private CapsuleCollider collider;
 
 	[SerializeField] private Transform shieldParent;
 	[SerializeField] private Shield shieldPrefab;
@@ -29,61 +29,50 @@ public class EnemyDamagable : DamagableObject
 		}
 
 		int size = 2;
+		Shield lastShield = null;
 		foreach (Frequencies frequency in initialFrequencies)
 		{
 			Shield newShield = Instantiate(shieldPrefab, shieldParent);
 			newShield.Frequency = frequency;
 			newShield.transform.localPosition = Vector3.zero + ((size - 2) * 0.001f * Vector3.forward);
-			newShield.transform.localScale *= size;
+			newShield.transform.localScale = new Vector3(size, 1.0f, size);
+			newShield.ChangeGridVisibility(false);
 			size++;
+
+			lastShield = newShield;
 
 			Shields.Add(newShield);
 		}
 
-		collider.radius = (size - 1) / 2f;
+		if (lastShield != null)
+		{
+			lastShield.ChangeGridVisibility(true);
+		}
+
+		collider.radius = 1 + (0.5f * (size - 2));
+		collider.height = 3 * collider.radius;
 		Frequency = initialFrequencies[^1];
 	}
 
 	private void OnDrawGizmosSelected()
 	{
-		Color previousColor = debugWithSpheres ? Gizmos.color : Handles.color;
+		Color previousColor = Handles.color;
 		int size = 2;
 		foreach (Frequencies frequency in initialFrequencies)
 		{
-			if (debugWithSpheres)
+			Handles.color = frequency switch
 			{
-				Gizmos.color = frequency switch
-				{
-					Frequencies.Square => Color.green,
-					Frequencies.Triangle => Color.red,
-					Frequencies.Wave => Color.blue,
-					_ => Gizmos.color
-				};
-				Gizmos.DrawWireSphere(transform.position, size * 0.5f);
-			}
-			else
-			{
-				Handles.color = frequency switch
-				{
-					Frequencies.Square => Color.green,
-					Frequencies.Triangle => Color.red,
-					Frequencies.Wave => Color.blue,
-					_ => Handles.color
-				};
-				Handles.DrawWireDisc(transform.position, Vector3.forward, size * 0.5f);
-			}
+				Frequencies.Square => Color.green,
+				Frequencies.Triangle => Color.red,
+				Frequencies.Wave => Color.blue,
+				_ => Handles.color
+			};
+			Handles.DrawWireDisc(transform.position, Vector3.up, size * 0.5f);
 
 			size++;
 		}
 
-		if (debugWithSpheres)
-		{
-			Gizmos.color = previousColor;
-		}
-		else
-		{
-			Handles.color = previousColor;
-		}
+		Handles.color = previousColor;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -102,6 +91,7 @@ public class EnemyDamagable : DamagableObject
 
 		if (otherDamagingObject.Frequency != firstShield.Frequency)
 		{
+			firstShield.BadHit();
 			return;
 		}
 
@@ -117,8 +107,11 @@ public class EnemyDamagable : DamagableObject
 
 			damagingObject.Frequency = nextShield.Frequency;
 			Frequency = nextShield.Frequency;
-			collider.radius = nextShield.transform.localScale.x / 2f;
 
+			nextShield.ChangeGridVisibility(true);
+
+			collider.radius = 1 + (0.5f * (shieldParent.childCount - 2));
+			collider.height = 3 * collider.radius;
 			return;
 		}
 

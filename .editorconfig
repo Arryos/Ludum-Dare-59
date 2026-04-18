@@ -20,7 +20,7 @@ insert_final_newline = false
 # Organize usings
 dotnet_separate_import_directive_groups = false
 dotnet_sort_system_directives_first = false
-file_header_template = This code has been made by Simon VRANA.\nPlease ask by email (simon.vrana.pro@gmail.com) before reusing for commercial purpose.
+#file_header_template = This code has been made by Simon VRANA.\nPlease ask by email (simon.vrana.pro@gmail.com) before reusing for commercial purpose.
 
 # this. and Me. preferences
 dotnet_style_qualification_for_event = false

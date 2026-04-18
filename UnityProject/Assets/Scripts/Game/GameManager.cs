@@ -1,11 +1,18 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class GameManager : Singleton<MonoBehaviour>
+public class GameManager : Singleton<GameManager>
 {
-	public PlayerDamagable PlayerDamagable { get; set; }
+	[field: SerializeField]
+	public PlayerDamagable PlayerDamagable { get; private set; }
+
 	public Frequencies PlayerFrequency => PlayerDamagable.Frequency;
 
-	public Action onPlayerFrequencyChanged;
+	public void GameOver()
+	{
+		Debug.Log("Game Over");
+	}
+
 }

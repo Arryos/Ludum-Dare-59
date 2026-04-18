@@ -6,37 +6,33 @@ public class EnemyMovement : MonoBehaviour
 {
 	[Header("Components")]
 	[SerializeField]
-	private EnemyDetection detection;
-	[SerializeField]
 	private NavMeshAgent agent;
 
 	[Header("Parameters")]
-	[SerializeField]
-	private float speed;
+	[field: SerializeField]
+	public float Speed { get; set; }
 
-	private bool canMove;
+	public bool CanMove { get; set; }
+
 	private Transform target;
 
-	private void OnEnable()
-	{
-		detection.TargetDetected += OnTargetDetected;
-	}
-	private void OnDisable()
-	{
-		detection.TargetDetected -= OnTargetDetected;
-	}
-
-    void Update()
+	void Update()
     {
-		if (!canMove) return;
+		if (target == null) return;
 
-		agent.SetDestination(target.transform.position);
-		agent.speed = speed;
+		if (!CanMove)
+		{
+			agent.speed = 0f;
+			return;
+		}
+
+		agent.speed = Speed;
+		transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
 	}
 
-	private void OnTargetDetected(Transform targetTransform)
+	public void GoToTarget(Transform target)
 	{
-		target = targetTransform;
-		canMove = true;
+		agent.SetDestination(target.position);
+		this.target = target;
 	}
 }

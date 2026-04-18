@@ -9,14 +9,7 @@ public class EnemyDetection : MonoBehaviour
 	private bool canDetect = true;
 
 	[field: SerializeField]
-	private Transform Target { get; set; }
-
-	[SerializeField]
-	TextMeshPro inRangeText;
-	[SerializeField]
-	TextMeshPro inSightText;
-	[SerializeField]
-	TextMeshPro inFrequencyText;
+	public Transform Target { get; set; }
 
 	[Header("Parameters")]
 	[Header("Radius")]
@@ -39,11 +32,13 @@ public class EnemyDetection : MonoBehaviour
 	[SerializeField]
 	private float viewAngle;
 
-	//[Header("Frequency")]
-	//[SerializeField]
-	//private Frequency detectionFrequency;
+	[Header("Frequency")]
+	[SerializeField]
+	private bool detectAllFrequencies = true;
+	[SerializeField]
+	private Frequencies detectionFrequency;
 
-	public Action<Transform> TargetDetected;
+	public Action TargetDetected;
 
 	private bool isDetecting;
 	private Vector3 dirToPlayer;
@@ -57,12 +52,10 @@ public class EnemyDetection : MonoBehaviour
     {
 		if (!canDetect || Target == null) return;
 
-		ShowDebugText();
-
 		if(TargetInRange() && TargetInSight() && TargetInFrequency() && ! isDetecting)
 		{
 			isDetecting = true;
-			TargetDetected?.Invoke(Target);
+			TargetDetected?.Invoke();
 		}
 	}
 
@@ -98,16 +91,18 @@ public class EnemyDetection : MonoBehaviour
 
 	private bool TargetInFrequency()
 	{
+		if (detectAllFrequencies)
+		{
+			return true;
+		}
+		if (Target.TryGetComponent(out FrequencyObject frequencyObject))
+		{
+			return frequencyObject.Frequency == detectionFrequency;
+		}
 		return true;
 	}
 
 	#region Debug
-	private void ShowDebugText()
-	{
-		inRangeText.text = TargetInRange() ? "In Range" : "Not in Range";
-		inSightText.text = TargetInSight() ? "In Sight" : "Not in Sight";
-		inFrequencyText.text = TargetInFrequency() ? "In Frequency" : "Not in Frequency";
-	}
 
 	private void OnDrawGizmos()
 	{

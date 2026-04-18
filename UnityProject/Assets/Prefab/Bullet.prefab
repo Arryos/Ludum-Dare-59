@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2952197449632611389}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -11.92, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6590028575469484245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
   frequency: 0
   <Target>k__BackingField: 0
-  speed: 5
-  lifetime: 20
+  speed: 50
+  lifetime: 5
   bulletRenderer: {fileID: 8558423296799305785}
   squareBulletMaterial: {fileID: 2100000, guid: 8c13d878eb28cee438e9ec7a8b5a9ab3, type: 2}
   triangleBulletMaterial: {fileID: 2100000, guid: 28d6afc9901d9164da22fdc2c09b5b57, type: 2}

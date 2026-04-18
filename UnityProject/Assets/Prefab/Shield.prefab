@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2009705468004837456}
   - component: {fileID: 4710857180076299812}
   - component: {fileID: 7074973307365603969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac32840ae2f70c4f8be14c658ac4202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShield
+  frequency: 0
   shield: {fileID: 7074973307365603969}
   squareShieldMaterial: {fileID: 2100000, guid: 35d86ab1ab6bfea4dbad4f34dd7e36bb, type: 2}
   triangleShieldMaterial: {fileID: 2100000, guid: 04cbb5eadc68b3f47a4154b82823e457, type: 2}

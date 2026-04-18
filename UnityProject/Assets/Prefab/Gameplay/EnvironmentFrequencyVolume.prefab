@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3172064197681608675}
   - component: {fileID: 313631735760101554}
+  - component: {fileID: 1429065507589373499}
   m_Layer: 0
   m_Name: EnvironmentFrequencyVolume
   m_TagString: Untagged
@@ -48,12 +49,26 @@ MonoBehaviour:
   frequency: 0
   objectCollider: {fileID: 8116228018483674810}
   meshRenderer: {fileID: 8988375625127606178}
+  tweenBounce: {fileID: 1429065507589373499}
   squareEnabledMaterial: {fileID: 2100000, guid: 7d249b96a287a5046a6d17217034cde0, type: 2}
   triangleEnabledMaterial: {fileID: 2100000, guid: 43b9099f3db526e4ca38be26f3abf8d2, type: 2}
   waveEnabledMaterial: {fileID: 2100000, guid: 16e61a0d6398bf949a4393ed26fc45d9, type: 2}
   squareDisabledMaterial: {fileID: 2100000, guid: e799a8e945db0544285911d086aebeeb, type: 2}
   triangleDisabledMaterial: {fileID: 2100000, guid: 439f36acf88c57942810f24bc1569045, type: 2}
   waveDisabledMaterial: {fileID: 2100000, guid: 7e256f4173c74ef4b9908b2a0115b589, type: 2}
+--- !u!114 &1429065507589373499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534552491859799330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2f86bcee21f314e8498752531831fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TweenBounce
+  startScale: 0.75
 --- !u!1 &8015153762124123402
 GameObject:
   m_ObjectHideFlags: 0

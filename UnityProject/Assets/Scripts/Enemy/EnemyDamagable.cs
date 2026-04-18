@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,8 +17,12 @@ public class EnemyDamagable : DamagableObject
 
 	[SerializeField] private bool debugWithSpheres;
 
+	public List<Shield> Shields { get; private set; }
+
 	private void Awake()
 	{
+		Shields = new List<Shield>();
+
 		foreach (Transform child in shieldParent)
 		{
 			Destroy(child.gameObject);
@@ -31,6 +36,8 @@ public class EnemyDamagable : DamagableObject
 			newShield.transform.localPosition = Vector3.zero + ((size - 2) * 0.001f * Vector3.forward);
 			newShield.transform.localScale *= size;
 			size++;
+
+			Shields.Add(newShield);
 		}
 
 		collider.radius = (size - 1) / 2f;

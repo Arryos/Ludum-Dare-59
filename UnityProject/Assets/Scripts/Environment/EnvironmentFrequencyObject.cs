@@ -5,7 +5,9 @@ public class EnvironmentFrequencyObject : FrequencyObject
 	[SerializeField]
 	private Collider objectCollider;
 	[SerializeField]
-	MeshRenderer meshRenderer;
+	private MeshRenderer meshRenderer;
+	[SerializeField]
+	private TweenBounce tweenBounce;
 
 	[Header("Enabled Materials")]
 	[SerializeField]
@@ -77,6 +79,8 @@ public class EnvironmentFrequencyObject : FrequencyObject
 	private void EnableObject()
 	{
 		objectCollider.enabled = true;
+
+		tweenBounce.Bounce();
 
 		// Kill player if they are inside collider
 		if (objectCollider.bounds.Contains(playerDamagable.transform.position))

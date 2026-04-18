@@ -118,7 +118,7 @@ public class EnemyDamagable : DamagableObject
 		Die();
 	}
 
-	protected override void Die()
+	public override void Die()
 	{
 		base.Die();
 		Destroy(transform.parent.gameObject);

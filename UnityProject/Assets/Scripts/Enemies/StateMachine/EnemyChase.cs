@@ -42,6 +42,8 @@ public class EnemyChase : EnemyState
 
 	public override void UpdateState(float delta)
 	{
+		if (enemyDetection.Target == null) return;
+
 		// Check navigation refresh
 		currentTick += delta;
 		if(currentTick >= navRefreshSpeed)

@@ -111,8 +111,11 @@ public class EnemyDetection : MonoBehaviour
 			Gizmos.color = Color.red;
 			Gizmos.DrawWireSphere(transform.position, detectionRadius);
 		}
-		Gizmos.color = Color.red;
-		Gizmos.DrawLine(transform.position, Target.position);
+		if (Target)
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawLine(transform.position, Target.position);
+		}
 
 		// View direction
 		Gizmos.color = Color.magenta;

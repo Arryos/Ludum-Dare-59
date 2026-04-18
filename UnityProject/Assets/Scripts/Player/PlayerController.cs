@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private GameObject antenna;
 
+	[SerializeField]
+	private GameObject pewpew;
+
 	//GameData SO 
 	[SerializeField]
     private SO_Float so_Speed;
@@ -175,24 +178,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        Debug.Log("Fire");
+        //Debug.Log("Fire");
 
         fireCnt++;
         if(fireCnt%3 == 0)
         {
-            Debug.Log("End Fire");
+            //Debug.Log("End Fire");
             
             fireCnt = 0;
 
             //Test Fire
 
-            GameObject pew = Instantiate(projectilePrefab, transform.position, transform.rotation);
-            pew.GetComponent<BaseProjectile>().SetValues(so_ProjData.projectileBody, so_ProjData.speed, so_ProjData.dmg, so_ProjData.range, so_ProjData.impactRadius);
+            GameObject pew = Instantiate(projectilePrefab, pewpew.transform.position, projectileDirection(LookDirection));
+            //pew.GetComponent<BaseProjectile>().SetValues(so_ProjData.projectileBody, so_ProjData.speed, so_ProjData.dmg, so_ProjData.range, so_ProjData.impactRadius);
 
         }
         else
         {
-            Debug.Log("Active  Fire");
+            //Debug.Log("Active  Fire");
         }
     }
 
@@ -220,6 +223,13 @@ public class PlayerController : MonoBehaviour
 		antenna.transform.localRotation = Quaternion.Euler(-90f, targetAngle, 180f);
 
 		so_Angle.Set(targetAngle);
+	}
+
+	private Quaternion projectileDirection(Vector2 dir)
+	{
+		float targetAngle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+
+		return Quaternion.Euler(0f, targetAngle, 0f);
 	}
 
     private void changeSpeed(float p_speed)

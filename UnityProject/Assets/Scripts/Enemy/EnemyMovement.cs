@@ -15,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 	public bool CanMove { get; set; }
 
 	private Transform target;
+	private Ray floorRay;
 
 	void Update()
     {
@@ -32,7 +33,20 @@ public class EnemyMovement : MonoBehaviour
 
 	public void GoToTarget(Transform target)
 	{
-		agent.SetDestination(target.position);
-		this.target = target;
+		if (agent.isActiveAndEnabled)
+		{
+			agent.SetDestination(target.position);
+			this.target = target;
+		}
+	}
+
+	private void FixedUpdate()
+	{
+		agent.enabled = IsGrounded();
+	}
+
+	private bool IsGrounded()
+	{
+		return Physics.Raycast(transform.position, Vector3.down, 1.1f);
 	}
 }

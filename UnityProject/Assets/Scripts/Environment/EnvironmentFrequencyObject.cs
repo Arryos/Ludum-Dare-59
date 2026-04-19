@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnvironmentFrequencyObject : FrequencyObject
 {
 	[SerializeField]
-	private Collider objectCollider;
+	private BoxCollider objectCollider;
 	[SerializeField]
 	private MeshRenderer meshRenderer;
 	[SerializeField]
@@ -25,7 +26,12 @@ public class EnvironmentFrequencyObject : FrequencyObject
 	[SerializeField]
 	private Material waveDisabledMaterial;
 
+	[Header("Enemies References")]
+	[SerializeField]
+	private List<DamagableObject> enemiesDamageable;
+
 	private PlayerDamagable playerDamagable;
+	private bool isActive;
 
 	private void Awake()
 	{
@@ -64,6 +70,16 @@ public class EnvironmentFrequencyObject : FrequencyObject
 		CheckNewFrequency(GameManager.Instance.PlayerFrequency);
 	}
 
+	private void OnTriggerEnter(Collider other)
+	{
+		if (!isActive) return;
+
+		if(other.TryGetComponent(out PlayerDamagable player))
+		{
+			player.Die();
+		}
+	}
+
 	private void CheckNewFrequency(Frequencies newFrequency)
 	{
 		if(Frequency == newFrequency)
@@ -78,15 +94,29 @@ public class EnvironmentFrequencyObject : FrequencyObject
 
 	private void EnableObject()
 	{
+		isActive = true;
 		objectCollider.enabled = true;
 
-		tweenBounce.Bounce();
+		Vector3 point = objectCollider.ClosestPoint(playerDamagable.transform.position);
 
-		// Kill player if they are inside collider
-		if (objectCollider.bounds.Contains(playerDamagable.transform.position))
+		if (point == playerDamagable.transform.position)
 		{
-			GameManager.Instance.GameOver();
+			playerDamagable.Die();
 		}
+
+		foreach (DamagableObject enemy in enemiesDamageable)
+		{
+			if(enemy != null)
+			{
+				Vector3 enemyPoint = objectCollider.ClosestPoint(playerDamagable.transform.position);
+				if (enemyPoint == enemy.transform.position)
+				{
+					enemy.Die();
+				}
+			}
+		}
+
+		tweenBounce.Bounce();
 
 		switch (Frequency)
 		{
@@ -106,6 +136,8 @@ public class EnvironmentFrequencyObject : FrequencyObject
 
 	private void DisableObject()
 	{
+		isActive = false;
+
 		objectCollider.enabled = false;
 
 		switch (Frequency)

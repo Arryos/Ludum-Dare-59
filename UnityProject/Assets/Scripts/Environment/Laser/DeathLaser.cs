@@ -33,7 +33,7 @@ public class DeathLaser : FrequencyObject
 	{
 		if(other.TryGetComponent(out PlayerDamagable player))
 		{
-			if(Frequency == player.Frequency)
+			if(Frequency != player.Frequency)
 			{
 				player.Die();
 			}

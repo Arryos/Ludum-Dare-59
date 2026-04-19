@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private GameObject targetArrow;
 
-	private readonly float gravity = -9.8f;
+	private readonly float gravity = -3.0f;
 
 	private InputActionMap actionMap;
 	private CharacterController controller;

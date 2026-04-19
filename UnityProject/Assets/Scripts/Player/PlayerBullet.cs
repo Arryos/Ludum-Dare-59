@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBullet : DamagingObject
 {
@@ -6,11 +7,17 @@ public class PlayerBullet : DamagingObject
 	[SerializeField] private float lifetime = 5f;
 
 	[Header("Color")]
-	[SerializeField] private MeshRenderer bulletRenderer;
+	[SerializeField] private Color squareBulletColor;
+	[SerializeField] private Color triangleBulletColor;
+	[SerializeField] private Color waveBulletColor;
 
-	[SerializeField] private Material squareBulletMaterial;
-	[SerializeField] private Material triangleBulletMaterial;
-	[SerializeField] private Material waveBulletMaterial;
+	[Header("Sprites")]
+	[SerializeField] private Sprite squareBulletSprite;
+	[SerializeField] private Sprite triangleBulletSprite;
+	[SerializeField] private Sprite waveBulletSprite;
+
+	[Header("References")]
+	[SerializeField] private Image bulletImage;
 
 	private float timeLeft;
 
@@ -44,12 +51,20 @@ public class PlayerBullet : DamagingObject
 
 	private void UpdateFrequencyMaterial()
 	{
-		bulletRenderer.material = Frequency switch
+		bulletImage.color = Frequency switch
 		{
-			Frequencies.Square => squareBulletMaterial,
-			Frequencies.Triangle => triangleBulletMaterial,
-			Frequencies.Wave => waveBulletMaterial,
-			_ => bulletRenderer.material
+			Frequencies.Square => squareBulletColor,
+			Frequencies.Triangle => triangleBulletColor,
+			Frequencies.Wave => waveBulletColor,
+			_ => bulletImage.color
+		};
+
+		bulletImage.sprite = Frequency switch
+		{
+			Frequencies.Square => squareBulletSprite,
+			Frequencies.Triangle => triangleBulletSprite,
+			Frequencies.Wave => waveBulletSprite,
+			_ => bulletImage.sprite
 		};
 	}
 }

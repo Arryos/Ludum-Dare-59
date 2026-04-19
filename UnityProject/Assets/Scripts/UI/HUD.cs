@@ -55,14 +55,14 @@ public class HUD : MonoBehaviour
 			{
 				cache.SetActive(true);
 			}
-			screens[0].SetActive(false);
+			screens[2].SetActive(false);
 
 			// stop animations and continue sin anim
 			foreach(Animator anim in animatorWaves)
 			{
 				anim.speed = 0;
 			}
-			animatorWaves[0].speed = 1;
+			animatorWaves[2].speed = 1;
 
 		}
 		else if(waves == SO_Wave.Waves.Triangle)
@@ -85,13 +85,13 @@ public class HUD : MonoBehaviour
 			{
 				cache.SetActive(true);
 			}
-			screens[2].SetActive(false);
+			screens[0].SetActive(false);
 
 			foreach (Animator anim in animatorWaves)
 			{
 				anim.speed = 0;
 			}
-			animatorWaves[2].speed = 1;
+			animatorWaves[0].speed = 1;
 		}
 	}
 

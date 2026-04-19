@@ -614,6 +614,8 @@ MonoBehaviour:
   LookDirection: {x: 0, y: 0}
   lastMoveDir: {x: 0, y: 0}
   targetArrow: {fileID: 3783960680694117260}
+  so_scroll: {fileID: 11400000, guid: bfa70084cf7cc44449a812c6e17654ce, type: 2}
+  so_wave: {fileID: 11400000, guid: a2ef0a5c4c405d7468a8b548dddaf772, type: 2}
 --- !u!114 &2637581817896145813
 MonoBehaviour:
   m_ObjectHideFlags: 0

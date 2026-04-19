@@ -52,6 +52,6 @@ public class GameManager : Singleton<GameManager>
 	[ContextMenu("Level Complete")]
 	public void LevelComplete()
 	{
-
+		SceneFlowManager.Instance.ResetScene();
 	}
 }

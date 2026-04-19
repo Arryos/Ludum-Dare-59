@@ -44,4 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2f84e8f2dde844c88f80da0868e807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneFlowManager
+  currentSceneIndex: 0
   loadingScreenPrefab: {fileID: 6578128156050582493, guid: ad6f752bb40808a4eb6582bd62cabad9, type: 3}
+  scenes:
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
+  - Level 5
+  - Level 6
+  - Level - Rotating Lasers
+  - Level - Multicolor Lasers
+  - Level - Battle Royale
+  - Level - Boss
+  - Level - End

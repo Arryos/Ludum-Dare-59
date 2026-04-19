@@ -815,7 +815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 313631735760101554, guid: bdf864b2a7832b844b3693100df18c60, type: 3}
       propertyPath: frequency
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 313631735760101554, guid: bdf864b2a7832b844b3693100df18c60, type: 3}
       propertyPath: enemiesDamageable.Array.size
@@ -940,7 +940,7 @@ PrefabInstance:
     - target: {fileID: 8988375625127606178, guid: bdf864b2a7832b844b3693100df18c60, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 7d249b96a287a5046a6d17217034cde0, type: 2}
+      objectReference: {fileID: 2100000, guid: 43b9099f3db526e4ca38be26f3abf8d2, type: 2}
     m_RemovedComponents:
     - {fileID: 6222472573973295377, guid: bdf864b2a7832b844b3693100df18c60, type: 3}
     m_RemovedGameObjects: []
@@ -1315,6 +1315,10 @@ PrefabInstance:
     - target: {fileID: 581074117972506655, guid: d4f096890dea72440976130f692936c6, type: 3}
       propertyPath: m_Name
       value: SceneFlowManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739470960681103141, guid: d4f096890dea72440976130f692936c6, type: 3}
+      propertyPath: currentSceneIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8544776495055277837, guid: d4f096890dea72440976130f692936c6, type: 3}
       propertyPath: m_LocalPosition.x

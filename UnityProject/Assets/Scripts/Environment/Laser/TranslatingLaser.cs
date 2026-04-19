@@ -10,6 +10,8 @@ public class TranslatingLaser : MonoBehaviour
 	float speed;
 	[SerializeField]
 	bool pingPong;
+	[SerializeField]
+	bool isStarted = true;
 
 	private Transform target;
 
@@ -24,7 +26,7 @@ public class TranslatingLaser : MonoBehaviour
 
 	void Update()
 	{
-		if (target == null) return;
+		if (target == null || !isStarted) return;
 
 		transform.position = Vector3.MoveTowards(
 			transform.position,
@@ -43,5 +45,15 @@ public class TranslatingLaser : MonoBehaviour
 				enabled = false;
 			}
 		}
+	}
+
+	public void StartTranslation()
+	{
+		isStarted = true;
+	}
+
+	public void StopTranslation()
+	{
+		isStarted = false;
 	}
 }

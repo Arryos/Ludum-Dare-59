@@ -62,6 +62,7 @@ public class EnemyDamagable : DamagableObject
 		}
 	}
 
+#if UNITY_EDITOR
 	private void OnDrawGizmosSelected()
 	{
 		Color previousColor = Handles.color;
@@ -82,6 +83,7 @@ public class EnemyDamagable : DamagableObject
 
 		Handles.color = previousColor;
 	}
+#endif
 
 	private void OnTriggerEnter(Collider other)
 	{

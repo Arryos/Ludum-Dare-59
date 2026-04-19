@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef537a54d9889024ea07c4a34116af52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamagable
-  frequency: 0
+  frequency: 1
   shield: {fileID: 395463763040428596}
 --- !u!143 &7927144503329044606
 CharacterController:

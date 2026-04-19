@@ -7,18 +7,20 @@ using UnityEngine.SceneManagement;
 public class SceneFlowManager : Singleton<SceneFlowManager>
 {
 	[SerializeField]
+	private int currentSceneIndex;
+
+	[SerializeField]
 	private LoadingScreen loadingScreenPrefab;
 
 	[Header("Level Scenes")]
-	private SceneAsset[] scenes;
+	[SerializeField]
+	private string[] scenes;
 
-	private int currentSceneIndex;
 	private string currentScene;
 	private Coroutine loadSceneCoroutine;
 
 	private void Awake()
 	{
-		currentSceneIndex = 0;
 		DontDestroyOnLoad(gameObject);
 	}
 
@@ -36,7 +38,7 @@ public class SceneFlowManager : Singleton<SceneFlowManager>
 		if (currentSceneIndex >= scenes.Length - 1) return;
 
 		currentSceneIndex++;
-		LoadScene(scenes[currentSceneIndex].name);
+		LoadScene(scenes[currentSceneIndex]);
 	}
 
 	public void LoadScene(string sceneName)

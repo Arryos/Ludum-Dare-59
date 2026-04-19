@@ -1149,7 +1149,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 502237020}
-  - component: {fileID: 502237021}
   m_Layer: 0
   m_Name: TranslatingLaser
   m_TagString: Untagged
@@ -1173,22 +1172,6 @@ Transform:
   - {fileID: 1277867059}
   m_Father: {fileID: 1681466424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &502237021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502237019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91cebc1a9e8783e428a75e14d3de5210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TranslatingLaser
-  startPoint: {fileID: 548145755}
-  endPoint: {fileID: 1798536345}
-  speed: 5
-  pingPong: 1
 --- !u!1 &548145754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,6 +1623,10 @@ PrefabInstance:
       propertyPath: 'initialFrequencies.Array.data[2]'
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5700925937442790222, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
+      propertyPath: detectionRadius
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5867973655876583913, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -1888,6 +1875,7 @@ MonoBehaviour:
   endPoint: {fileID: 1798536345}
   speed: 4
   pingPong: 1
+  isStarted: 1
 --- !u!1001 &1306257809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1951,6 +1939,10 @@ PrefabInstance:
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: 'initialFrequencies.Array.data[2]'
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700925937442790222, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
+      propertyPath: detectionRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5867973655876583913, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: m_Name
@@ -2028,6 +2020,10 @@ PrefabInstance:
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: 'initialFrequencies.Array.data[2]'
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700925937442790222, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
+      propertyPath: detectionRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5867973655876583913, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: m_Name
@@ -2485,6 +2481,10 @@ PrefabInstance:
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: 'initialFrequencies.Array.data[2]'
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700925937442790222, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
+      propertyPath: detectionRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5867973655876583913, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: m_Name
@@ -3005,6 +3005,10 @@ PrefabInstance:
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: 'initialFrequencies.Array.data[2]'
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700925937442790222, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
+      propertyPath: detectionRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5867973655876583913, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: m_Name
@@ -3814,6 +3818,10 @@ PrefabInstance:
     - target: {fileID: 581074117972506655, guid: d4f096890dea72440976130f692936c6, type: 3}
       propertyPath: m_Name
       value: SceneFlowManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739470960681103141, guid: d4f096890dea72440976130f692936c6, type: 3}
+      propertyPath: currentSceneIndex
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8544776495055277837, guid: d4f096890dea72440976130f692936c6, type: 3}
       propertyPath: m_LocalPosition.x

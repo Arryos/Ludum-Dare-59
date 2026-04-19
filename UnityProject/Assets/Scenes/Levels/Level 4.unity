@@ -2078,7 +2078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5700925937442790222, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: detectionRadius
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5867973655876583913, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: m_Name
@@ -2825,6 +2825,10 @@ PrefabInstance:
     - target: {fileID: 581074117972506655, guid: d4f096890dea72440976130f692936c6, type: 3}
       propertyPath: m_Name
       value: SceneFlowManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739470960681103141, guid: d4f096890dea72440976130f692936c6, type: 3}
+      propertyPath: currentSceneIndex
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8544776495055277837, guid: d4f096890dea72440976130f692936c6, type: 3}
       propertyPath: m_LocalPosition.x

@@ -3587,6 +3587,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1033315140609748504, guid: f473ba8fa2dd5f548a9fabf130fa8acc, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 8162705e6f4216d44a60ef2a69a32798, type: 2}
+    - target: {fileID: 3419838117812875628, guid: f473ba8fa2dd5f548a9fabf130fa8acc, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 4cd597c93a3ac8340b96cc8fa8ea3d32, type: 2}
     - target: {fileID: 7586984036171936670, guid: f473ba8fa2dd5f548a9fabf130fa8acc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.54317
@@ -3631,6 +3639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavigationFrequencyAdapter
       objectReference: {fileID: 0}
+    - target: {fileID: 8012899347099884017, guid: f473ba8fa2dd5f548a9fabf130fa8acc, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 534cffce41a4df8438c6f13af299184b, type: 2}
     - target: {fileID: 8885196086398819826, guid: f473ba8fa2dd5f548a9fabf130fa8acc, type: 3}
       propertyPath: agents.Array.size
       value: 2

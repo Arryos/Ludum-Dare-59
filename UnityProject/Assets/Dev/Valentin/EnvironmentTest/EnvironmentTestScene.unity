@@ -1476,9 +1476,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2193261490948084826, guid: 957db60493cea3942987d3dd0f238be9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f6cf94dd0f615e64bbb2d194fd8ac1a0, type: 2}
     - target: {fileID: 4877299698149420957, guid: 957db60493cea3942987d3dd0f238be9, type: 3}
       propertyPath: m_Name
       value: DeathLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288047341415661775, guid: 957db60493cea3942987d3dd0f238be9, type: 3}
+      propertyPath: frequency
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

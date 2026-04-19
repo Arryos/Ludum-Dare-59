@@ -8,9 +8,10 @@ public class SO_Wave : ScriptableObject
 	[System.Serializable]
     public enum Waves
 	{
-		Sinusoid,
+		Square,
 		Triangle,
-		Square
+		Sinusoid,
+		
 	}
 
 	[SerializeField] private Waves m_wave;

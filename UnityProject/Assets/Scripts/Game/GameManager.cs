@@ -1,45 +1,50 @@
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class GameManager : Singleton<GameManager>
 {
-	[field: SerializeField]
-	public PlayerDamagable PlayerDamagable { get; private set; }
+	[field: SerializeField] public PlayerDamagable PlayerDamagable { get; private set; }
 
 	[Header("Pause")]
-	[SerializeField]
-	private InputAction pauseInput;
-	[SerializeField]
-	PauseMenu pauseMenu;
+	[SerializeField] private InputAction pauseInput;
 
-	public Frequencies PlayerFrequency => PlayerDamagable.Frequency;
+	[SerializeField] private PauseMenu pauseMenu;
+
 	public Action<bool> onPauseToggled;
 
-	private bool isPaused;
+	public Frequencies PlayerFrequency => PlayerDamagable.Frequency;
+	public bool IsPaused { get; private set; }
 
 
 	public void Awake()
 	{
-		pauseInput.performed += (ctx) => TogglePause();
+		pauseInput.performed += ctx => TogglePause();
 		pauseInput.Enable();
 		if (pauseMenu)
 		{
-			pauseMenu.gameObject.SetActive(false);
+			pauseMenu.Close();
 		}
 	}
 
-	public void TogglePause()
+	public void TogglePause(bool openPauseMenu = true)
 	{
-		isPaused = !isPaused;
+		IsPaused = !IsPaused;
 
-		onPauseToggled?.Invoke(isPaused);
+		onPauseToggled?.Invoke(IsPaused);
 
-		Time.timeScale = isPaused ? 0f : 1f;
-		if (pauseMenu)
+		Time.timeScale = IsPaused ? 0f : 1f;
+		if (openPauseMenu
+		    && pauseMenu)
 		{
-			pauseMenu.gameObject.SetActive(isPaused);
+			if (IsPaused)
+			{
+				pauseMenu.Open();
+			}
+			else
+			{
+				pauseMenu.Close();
+			}
 		}
 	}
 

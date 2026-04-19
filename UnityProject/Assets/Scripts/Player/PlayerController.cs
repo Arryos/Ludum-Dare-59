@@ -269,19 +269,73 @@ public class PlayerController : MonoBehaviour
 		//lastMoveDir = LookDirection;
 	}
 
+
+	private int maxScrollValue = 6;
+	private int minScrollValue = -6;
+	private int currentScrollValue = 0;
+
+	[SerializeField]
+	private SO_Float so_scroll;
+	[SerializeField]
+	private SO_Wave so_wave;
 	private void OnScroll(InputAction.CallbackContext context)
 	{
 		if (!canInput) return;
 
 		//Debug.Log(" test" + context.ReadValue<Vector2>());
 		//TODO change frequence 
+		if(currentScrollValue < maxScrollValue && currentScrollValue > minScrollValue)
+		{
+			currentScrollValue += (int)context.ReadValue<Vector2>().y;
+			//change SO_float scroll value
+			so_scroll.Set(currentScrollValue);
+		}
+		else if(currentScrollValue == maxScrollValue)
+		{
+			if(currentScrollValue + (int)context.ReadValue<Vector2>().y < maxScrollValue)
+			{
+				currentScrollValue += (int)context.ReadValue<Vector2>().y;
+				//change SO_float scroll value
+				so_scroll.Set(currentScrollValue);
+			}
+		}
+		else if(currentScrollValue == minScrollValue)
+		{
+			if (currentScrollValue + (int)context.ReadValue<Vector2>().y > minScrollValue)
+			{
+				currentScrollValue += (int)context.ReadValue<Vector2>().y;
+				//change SO_float scroll value
+				so_scroll.Set(currentScrollValue);
+			}
+		}
 
+		Frequencies tmp = 0;
+
+		if(currentScrollValue > maxScrollValue / 3)
+		{
+			tmp = Frequencies.Square;
+		}
+		else if (currentScrollValue < minScrollValue /3)
+		{
+			tmp = Frequencies.Wave;
+		}
+		else
+		{
+			tmp = Frequencies.Triangle;
+		}
+
+		if(playerDamagable.Frequency != tmp)
+		{
+			playerDamagable.Frequency = tmp;
+			so_wave.Set((SO_Wave.Waves)(int)tmp);
+		}
+		/*
 		playerDamagable.Frequency = playerDamagable.Frequency switch
 		{
 			Frequencies.Square => Frequencies.Triangle,
 			Frequencies.Triangle => Frequencies.Wave,
 			_ => Frequencies.Square
-		};
+		};*/
 	}
 
 	private void MouseTarget()

@@ -5,21 +5,19 @@ public class PlayerBullet : DamagingObject
 {
 	[SerializeField] private float speed = 10f;
 	[SerializeField] private float lifetime = 5f;
+	[SerializeField] private float animationSpeed = 5f;
 
-	[Header("Color")]
-	[SerializeField] private Color squareBulletColor;
-	[SerializeField] private Color triangleBulletColor;
-	[SerializeField] private Color waveBulletColor;
+	[Header("Materials")]
+	[SerializeField] private Material squareBulletMaterial;
+	[SerializeField] private Material triangleBulletMaterial;
+	[SerializeField] private Material waveBulletMaterial;
 
-	[Header("Sprites")]
-	[SerializeField] private Sprite squareBulletSprite;
-	[SerializeField] private Sprite triangleBulletSprite;
-	[SerializeField] private Sprite waveBulletSprite;
-
-	[Header("References")]
-	[SerializeField] private Image bulletImage;
+	[Header("Mesh")]
+	[SerializeField] private MeshRenderer meshRenderer;
 
 	private float timeLeft;
+	private MaterialPropertyBlock materialPropertyBlock;
+	private int offsetId;
 
 	private void Update()
 	{
@@ -30,6 +28,11 @@ public class PlayerBullet : DamagingObject
 		}
 
 		transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+
+		// Offset bullet material to animate signal
+		meshRenderer.GetPropertyBlock(materialPropertyBlock);
+		materialPropertyBlock.SetFloat(offsetId, animationSpeed * Time.time);
+		meshRenderer.SetPropertyBlock(materialPropertyBlock);
 	}
 
 	private void OnEnable()
@@ -51,20 +54,15 @@ public class PlayerBullet : DamagingObject
 
 	private void UpdateFrequencyMaterial()
 	{
-		bulletImage.color = Frequency switch
+		meshRenderer.material = Frequency switch
 		{
-			Frequencies.Square => squareBulletColor,
-			Frequencies.Triangle => triangleBulletColor,
-			Frequencies.Wave => waveBulletColor,
-			_ => bulletImage.color
+			Frequencies.Square => squareBulletMaterial,
+			Frequencies.Triangle => triangleBulletMaterial,
+			Frequencies.Wave => waveBulletMaterial,
+			_ => squareBulletMaterial
 		};
 
-		bulletImage.sprite = Frequency switch
-		{
-			Frequencies.Square => squareBulletSprite,
-			Frequencies.Triangle => triangleBulletSprite,
-			Frequencies.Wave => waveBulletSprite,
-			_ => bulletImage.sprite
-		};
+		materialPropertyBlock = new MaterialPropertyBlock();
+		offsetId = Shader.PropertyToID("_Offset");
 	}
 }

@@ -7,6 +7,7 @@ Shader "Custom/VertexTirangle"
         _Amplitude("Amplitude", Float) = 1.0
         _Frequency("Frequency", Float) = 1.0
         _Offset("Offset", Float) = 0.0
+        [HDR] _EmissionColor("Emission Color", Color) = (0,0,0,0)
     }
 
     SubShader
@@ -45,6 +46,7 @@ Shader "Custom/VertexTirangle"
                 float _Amplitude;
                 float _Frequency;
                 float _Offset;
+                float4 _EmissionColor;
             CBUFFER_END
 
             Varyings vert(Attributes IN)
@@ -61,8 +63,10 @@ Shader "Custom/VertexTirangle"
 
             half4 frag(Varyings IN) : SV_Target
             {
-                half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
-                return color;
+                half4 baseColor = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
+                half3 emission = _EmissionColor.rgb;
+
+                return half4(baseColor.rgb + emission, baseColor.a);
             }
             ENDHLSL
         }

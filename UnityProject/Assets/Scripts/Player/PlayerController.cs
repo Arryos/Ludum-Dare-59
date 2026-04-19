@@ -60,21 +60,22 @@ public class PlayerController : MonoBehaviour
 	private PlayerInput playerInput;
 	private Vector3 velocity;
 
+	private bool canInput;
+
 	private void Awake()
 	{
+		canInput = true;
+
 		controller = gameObject.GetComponent<CharacterController>();
 		playerInput = gameObject.GetComponent<PlayerInput>();
 		actionMap = playerInput.actions.FindActionMap("Player");
 	}
 
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	private void Start()
-	{
-	}
-
 	// Update is called once per frame
 	private void Update()
 	{
+		if (!canInput) return;
+
 		Vector3 move = new(moveInput.x, 0, moveInput.y);
 		controller.Move(move * m_speed * Time.deltaTime);
 
@@ -128,6 +129,8 @@ public class PlayerController : MonoBehaviour
 
 	private void OnEnable()
 	{
+		GameManager.Instance.onPauseToggled += PauseInputs;
+
 		so_Speed.OnValueChanged += changeSpeed;
 
 		// register to actions
@@ -137,6 +140,8 @@ public class PlayerController : MonoBehaviour
 
 	private void OnDisable()
 	{
+		GameManager.Instance.onPauseToggled -= PauseInputs;
+
 		so_Speed.OnValueChanged -= changeSpeed;
 
 		// unregister to actions
@@ -146,6 +151,8 @@ public class PlayerController : MonoBehaviour
 
 	public void OnMove(InputAction.CallbackContext context)
 	{
+		if (!canInput) return;
+
 		isMove = true;
 		moveInput = context.ReadValue<Vector2>();
 		//Debug.Log($"Move input : {moveInput}");
@@ -164,6 +171,8 @@ public class PlayerController : MonoBehaviour
 
 	public void OnLook(InputAction.CallbackContext context)
 	{
+		if (!canInput) return;
+
 		if (so_controlDevice.Get()) //false = keyboard/mouse ; true = controller
 		{
 			lookInput = context.ReadValue<Vector2>();
@@ -184,6 +193,8 @@ public class PlayerController : MonoBehaviour
 
 	public void OnFire(InputAction.CallbackContext context)
 	{
+		if (!canInput) return;
+
 		//Debug.Log("Fire");
 
 		fireCnt++;
@@ -241,11 +252,18 @@ public class PlayerController : MonoBehaviour
 		m_speed = p_speed;
 	}
 
+	private void PauseInputs(bool isPaused)
+	{
+		canInput = !isPaused;
+	}
+
 	#region mouse/keyboard specifics
 
 	//test
 	private void OnTarget(InputAction.CallbackContext context)
 	{
+		if (!canInput) return;
+
 		//Debug.LogWarning("target mouse");
 
 		//lastMoveDir = LookDirection;
@@ -262,6 +280,8 @@ public class PlayerController : MonoBehaviour
 	private SO_Wave so_wave;
 	private void OnScroll(InputAction.CallbackContext context)
 	{
+		if (!canInput) return;
+
 		//Debug.Log(" test" + context.ReadValue<Vector2>());
 		//TODO change frequence 
 		if(currentScrollValue < maxScrollValue && currentScrollValue > minScrollValue)

@@ -2,16 +2,13 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-	private bool isPaused;
+	public void Resume()
+	{
+		GameManager.Instance.TogglePause();
+	}
 
-    void Awake()
-    {
-        
-    }
+	public void Quit()
+	{
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	}
 }

@@ -8,11 +8,50 @@ public class GameManager : Singleton<GameManager>
 	[field: SerializeField]
 	public PlayerDamagable PlayerDamagable { get; private set; }
 
-	public Frequencies PlayerFrequency => PlayerDamagable.Frequency;
+	[Header("Pause")]
+	[SerializeField]
+	private InputAction pauseInput;
+	[SerializeField]
+	PauseMenu pauseMenu;
 
-	public void GameOver()
+	public Frequencies PlayerFrequency => PlayerDamagable.Frequency;
+	public Action<bool> onPauseToggled;
+
+	private bool isPaused;
+
+
+	public void Awake()
 	{
-		Debug.Log("Game Over");
+		pauseInput.performed += (ctx) => TogglePause();
+		pauseInput.Enable();
+		if (pauseMenu)
+		{
+			pauseMenu.gameObject.SetActive(false);
+		}
 	}
 
+	public void TogglePause()
+	{
+		isPaused = !isPaused;
+
+		onPauseToggled?.Invoke(isPaused);
+
+		Time.timeScale = isPaused ? 0f : 1f;
+		if (pauseMenu)
+		{
+			pauseMenu.gameObject.SetActive(isPaused);
+		}
+	}
+
+	[ContextMenu("Game Over")]
+	public void GameOver()
+	{
+		SceneFlowManager.Instance.ResetScene();
+	}
+
+	[ContextMenu("Level Complete")]
+	public void LevelComplete()
+	{
+		SceneFlowManager.Instance.ResetScene();
+	}
 }

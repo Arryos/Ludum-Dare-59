@@ -41,7 +41,7 @@ public class PlayerDamagable : DamagableObject
 		base.OnFrequencyChanged();
 	}
 
-	protected override void Die()
+	public override void Die()
 	{
 		base.Die();
 		GameManager.Instance.GameOver();

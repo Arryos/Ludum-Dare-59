@@ -46,6 +46,10 @@ public class EnemyDetection : MonoBehaviour
 	private void Awake()
 	{
 		isDetecting = false;
+		if(Target == null)
+		{
+			Target = GameManager.Instance.PlayerDamagable.transform;
+		}
 	}
 
 	void Update()
@@ -104,7 +108,7 @@ public class EnemyDetection : MonoBehaviour
 
 	#region Debug
 
-	private void OnDrawGizmos()
+	private void OnDrawGizmosSelected()
 	{
 		if (hasRadius)
 		{

@@ -56,6 +56,7 @@ MonoBehaviour:
   squareDisabledMaterial: {fileID: 2100000, guid: e799a8e945db0544285911d086aebeeb, type: 2}
   triangleDisabledMaterial: {fileID: 2100000, guid: 439f36acf88c57942810f24bc1569045, type: 2}
   waveDisabledMaterial: {fileID: 2100000, guid: 7e256f4173c74ef4b9908b2a0115b589, type: 2}
+  enemiesDamageable: []
 --- !u!114 &1429065507589373499
 MonoBehaviour:
   m_ObjectHideFlags: 0

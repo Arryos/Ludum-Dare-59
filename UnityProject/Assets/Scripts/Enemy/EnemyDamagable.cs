@@ -54,6 +54,14 @@ public class EnemyDamagable : DamagableObject
 		Frequency = initialFrequencies[^1];
 	}
 
+	private void Update()
+	{
+		if (transform.position.y < -10f)
+		{
+			Die();
+		}
+	}
+
 	private void OnDrawGizmosSelected()
 	{
 		Color previousColor = Handles.color;

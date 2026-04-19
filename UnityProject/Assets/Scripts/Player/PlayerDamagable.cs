@@ -3,13 +3,21 @@ using UnityEngine;
 
 public class PlayerDamagable : DamagableObject
 {
-	[SerializeField] private Shield shield;
+	[SerializeField] private PlayerWaveEmission playerWaveEmission;
 
 	public Action<Frequencies> onPlayerFrequencyChanged;
 
+	private void Update()
+	{
+		if (transform.position.y < -10f)
+		{
+			Die();
+		}
+	}
+
 	private void OnEnable()
 	{
-		shield.Frequency = Frequency;
+		playerWaveEmission.Frequency = Frequency;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -26,17 +34,9 @@ public class PlayerDamagable : DamagableObject
 		}
 	}
 
-	private void Update()
-	{
-		if (transform.position.y < -10f)
-		{
-			Die();
-		}
-	}
-
 	protected override void OnFrequencyChanged()
 	{
-		shield.Frequency = Frequency;
+		playerWaveEmission.Frequency = Frequency;
 		onPlayerFrequencyChanged?.Invoke(Frequency);
 		base.OnFrequencyChanged();
 	}

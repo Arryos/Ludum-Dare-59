@@ -53,9 +53,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TimeScale: 0.25
-    - _Voronoi_Density: 8
-    - _Voronoi_Power: 100
+    - _TimeScale: 0.2
+    - _Voronoi_Density: 30
+    - _Voronoi_Power: 150
     m_Colors:
     - _DownColor: {r: 0.29857156, g: 0.005606967, b: 0.3962264, a: 0}
     - _UpperColor: {r: 0.084422395, g: 0.02710039, b: 0.2735849, a: 0}

@@ -32,6 +32,9 @@ public class Shield : FrequencyObject
 	[Header("Blink")]
 	[SerializeField] private float fadeDuration = 0.5f;
 
+	[Header("SFX")]
+	[SerializeField] private AudioSource blockSFX;
+
 	private CancellationTokenSource cancellationTokenSource;
 
 	protected override void OnFrequencyChanged()
@@ -70,6 +73,8 @@ public class Shield : FrequencyObject
 	{
 		cancellationTokenSource?.Cancel();
 		cancellationTokenSource = new CancellationTokenSource();
+
+		blockSFX.Play();
 
 		BlinkHit(cancellationTokenSource.Token);
 	}

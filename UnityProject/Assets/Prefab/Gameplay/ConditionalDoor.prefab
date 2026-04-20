@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ConditionalDoor
   condition: {fileID: 0}
   doorCollider: {fileID: 8472748077092676602}
+  doorAnimator: {fileID: 6557663413481689422}
 --- !u!1001 &2524189594133461104
 PrefabInstance:
   m_ObjectHideFlags: 0

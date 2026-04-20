@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	FrequencyShootAudioPlayer shootSFX;
 
+	[SerializeField]
+	TweenBounce shootBounceFX;
+
 	private readonly float gravity = -3.0f;
 
 	private InputActionMap actionMap;
@@ -223,8 +226,10 @@ public class PlayerController : MonoBehaviour
 
 			fireCnt = 0;
 
-			//Test Fire
+			// FX
 			shootSFX.PlayFrequency(playerDamagable.Frequency);
+			shootBounceFX.Bounce();
+
 			PlayerBullet pew = Instantiate(projectilePrefab, pewpew.transform.position,
 				projectileDirection(LookDirection));
 			pew.Frequency = playerDamagable.Frequency;
@@ -277,6 +282,11 @@ public class PlayerController : MonoBehaviour
 	private void PauseInputs(bool isPaused)
 	{
 		canInput = !isPaused;
+	}
+
+	public void CancelInputs()
+	{
+		canInput = false;
 	}
 
 	#region mouse/keyboard specifics

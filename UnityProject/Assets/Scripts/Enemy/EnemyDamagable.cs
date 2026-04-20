@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -17,7 +18,14 @@ public class EnemyDamagable : DamagableObject
 
 	[SerializeField] private bool debugWithSpheres;
 
+	[Header("SFX")]
+	[SerializeField] private AudioSource shieldBreakSFX;
+	[SerializeField] private Transform enemyModel;
+	[SerializeField] private AudioSource deathSFX;
+	[SerializeField] private GameObject deathVFXPrefab;
+
 	public List<Shield> Shields { get; private set; }
+	private Coroutine deathCoroutine;
 
 	private void Awake()
 	{
@@ -105,6 +113,8 @@ public class EnemyDamagable : DamagableObject
 			return;
 		}
 
+		shieldBreakSFX.Play();
+
 		Destroy(shieldParent.GetChild(shieldParent.childCount - 1).gameObject);
 
 		if (shieldParent.childCount > 1)
@@ -130,7 +140,27 @@ public class EnemyDamagable : DamagableObject
 
 	public override void Die()
 	{
+		if (deathCoroutine != null)
+		{
+			return;
+		}
+
+		deathSFX.Play();
+
+		Instantiate(deathVFXPrefab, transform);
+		deathCoroutine = StartCoroutine(DeathCoroutine());
+	}
+
+	private IEnumerator DeathCoroutine()
+	{
+		float elapsedTime = 0f;
+		while (elapsedTime < 2.0f)
+		{
+			enemyModel.localScale = enemyModel.localScale * (1f - elapsedTime);
+			elapsedTime += Time.deltaTime;
+			yield return null;
+		}
 		base.Die();
-		Destroy(transform.parent.gameObject);
+		Destroy(gameObject);
 	}
 }

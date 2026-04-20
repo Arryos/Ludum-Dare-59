@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private GameObject pewpew;
 
+	[SerializeField]
+	private float shootCooldown = 0.2f;
+
 	[SerializeField] private PlayerDamagable playerDamagable;
 
 	//GameData SO 
@@ -42,6 +45,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private GameObject targetArrow;
 
+	[SerializeField]
+	FrequencyShootAudioPlayer shootSFX;
+
 	private readonly float gravity = -3.0f;
 
 	private InputActionMap actionMap;
@@ -61,10 +67,13 @@ public class PlayerController : MonoBehaviour
 	private Vector3 velocity;
 
 	private bool canInput;
+	private float shootDelay = 0f;
+	private bool canShoot;
 
 	private void Awake()
 	{
 		canInput = true;
+		canShoot = true;
 
 		controller = gameObject.GetComponent<CharacterController>();
 		playerInput = gameObject.GetComponent<PlayerInput>();
@@ -81,6 +90,16 @@ public class PlayerController : MonoBehaviour
 
 		velocity.y += gravity * Time.deltaTime;
 		controller.Move(velocity * Time.deltaTime);
+
+		if (!canShoot)
+		{
+			shootDelay += Time.deltaTime;
+			if (shootDelay > shootCooldown)
+			{
+				shootDelay = 0f;
+				canShoot = true;
+			}
+		}
 
 		if (!so_controlDevice.Get())
 		{
@@ -193,7 +212,7 @@ public class PlayerController : MonoBehaviour
 
 	public void OnFire(InputAction.CallbackContext context)
 	{
-		if (!canInput) return;
+		if (!canInput || !canShoot) return;
 
 		//Debug.Log("Fire");
 
@@ -205,10 +224,13 @@ public class PlayerController : MonoBehaviour
 			fireCnt = 0;
 
 			//Test Fire
-
+			shootSFX.PlayFrequency(playerDamagable.Frequency);
 			PlayerBullet pew = Instantiate(projectilePrefab, pewpew.transform.position,
 				projectileDirection(LookDirection));
 			pew.Frequency = playerDamagable.Frequency;
+
+			canShoot = false;
+
 			//pew.GetComponent<BaseProjectile>().SetValues(so_ProjData.projectileBody, so_ProjData.speed, so_ProjData.dmg, so_ProjData.range, so_ProjData.impactRadius);
 		}
 		//Debug.Log("Active  Fire");

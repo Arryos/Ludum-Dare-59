@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -23,6 +24,8 @@ public class EnemyDamagable : DamagableObject
 	[SerializeField] private Transform enemyModel;
 	[SerializeField] private AudioSource deathSFX;
 	[SerializeField] private GameObject deathVFXPrefab;
+
+	public event EventHandler OnDeath;
 
 	public List<Shield> Shields { get; private set; }
 	private Coroutine deathCoroutine;
@@ -152,6 +155,8 @@ public class EnemyDamagable : DamagableObject
 		cameraShake.Shake(0.2f, 0.2f);
 		deathSFX.Play();
 
+		OnDeath?.Invoke(this, EventArgs.Empty);
+
 		transform.parent.GetComponent<Collider>().enabled = false;
 		collider.enabled = false;
 
@@ -168,7 +173,6 @@ public class EnemyDamagable : DamagableObject
 			elapsedTime += Time.deltaTime;
 			yield return null;
 		}
-		base.Die();
 		Destroy(transform.parent.gameObject);
 	}
 }

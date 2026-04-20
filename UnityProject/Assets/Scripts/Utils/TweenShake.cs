@@ -13,6 +13,7 @@ public class TweenShake : MonoBehaviour
 
 	public void Shake(float duration, float strength)
 	{
+		initialPosition = transform.localPosition;
 		// Si un shake est déjà en cours, on le termine proprement
 		if (currentTween != null && currentTween.IsActive())
 		{

@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class PlayerWaveEmission : FrequencyObject
 {
+	[SerializeField] private bool random;
 	[Header("Objects")]
 	[SerializeField] private Transform sphereTransform;
 	[SerializeField] private MeshRenderer shpereMeshRenderer;
@@ -35,8 +37,11 @@ public class PlayerWaveEmission : FrequencyObject
 	private float cycleDuration;
 	private float elapsedTime;
 
+	Frequencies[] values;
+
 	private void Start()
 	{
+		values = (Frequencies[])Enum.GetValues(typeof(Frequencies));
 		cycleDuration = emissionDuration + restDuration;
 		UpdateColorsForFrequency();
 	}
@@ -74,6 +79,8 @@ public class PlayerWaveEmission : FrequencyObject
 
 			// Light stays at end values
 			pointLight.intensity = lightEndIntensity;
+
+			UpdateColorsForFrequency();
 		}
 	}
 
@@ -84,6 +91,11 @@ public class PlayerWaveEmission : FrequencyObject
 
 	private void UpdateColorsForFrequency()
 	{
+		if (random)
+		{
+			Frequency = values[UnityEngine.Random.Range(0, values.Length)];
+		}
+
 		switch (Frequency)
 		{
 			case Frequencies.Square:

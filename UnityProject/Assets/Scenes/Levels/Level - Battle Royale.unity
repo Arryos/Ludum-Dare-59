@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1504,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -1528,7 +1528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2409,7 +2409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -2433,7 +2433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2745,7 +2745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -2769,7 +2769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2966,7 +2966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -2990,7 +2990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3311,7 +3311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -3335,7 +3335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3474,7 +3474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -3498,7 +3498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11290,7 +11290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2193642148379317634, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: <Speed>k__BackingField
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626813638052195816, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: initialFrequencies.Array.size
@@ -11314,7 +11314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8392209239941433911, guid: 1ee00d5164deb8640971ffdf91ecb6c3, type: 3}
       propertyPath: chaseSpeed
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

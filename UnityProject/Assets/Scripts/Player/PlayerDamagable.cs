@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerDamagable : DamagableObject
 {
 	[SerializeField] private PlayerWaveEmission playerWaveEmission;
+	[SerializeField] private TweenShake cameraShake;
 
 	[Header("Death")]
 	[SerializeField] private Transform playerModel;
@@ -54,6 +55,8 @@ public class PlayerDamagable : DamagableObject
 		{
 			return;
 		}
+
+		cameraShake.Shake(0.5f, 1f);
 
 		GetComponent<PlayerController>().CancelInputs();
 

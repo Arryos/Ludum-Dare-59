@@ -27,6 +27,8 @@ public class EnemyDamagable : DamagableObject
 	public List<Shield> Shields { get; private set; }
 	private Coroutine deathCoroutine;
 
+	private TweenShake cameraShake;
+
 	private void Awake()
 	{
 		Shields = new List<Shield>();
@@ -60,6 +62,8 @@ public class EnemyDamagable : DamagableObject
 		collider.radius = 1 + (0.5f * (size - 2));
 		collider.height = 3 * collider.radius;
 		Frequency = initialFrequencies[^1];
+
+		cameraShake = Camera.main.gameObject.GetComponent<TweenShake>();
 	}
 
 	private void Update()
@@ -145,6 +149,7 @@ public class EnemyDamagable : DamagableObject
 			return;
 		}
 
+		cameraShake.Shake(0.2f, 0.2f);
 		deathSFX.Play();
 
 		Instantiate(deathVFXPrefab, transform);

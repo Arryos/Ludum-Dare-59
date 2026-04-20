@@ -59,6 +59,7 @@ MonoBehaviour:
   - Level - Battle Royale
   - Level - Boss
   - Level - End
+  startGame: 0
 --- !u!1001 &8392855215515715786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +68,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8544776495055277837}
     m_Modifications:
+    - target: {fileID: 4000711961840232693, guid: ad6f752bb40808a4eb6582bd62cabad9, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4655667174677196589, guid: ad6f752bb40808a4eb6582bd62cabad9, type: 3}
       propertyPath: m_Name
       value: LoadingScreen

@@ -16,27 +16,32 @@ public class SceneFlowManager : Singleton<SceneFlowManager>
 	[SerializeField]
 	private string[] scenes;
 
+	[Header("Debug")]
+	[SerializeField]
+	private bool startGame;
+
 	private string currentScene;
 	private Coroutine loadSceneCoroutine;
 
 	private void Awake()
 	{
-		if(SceneFlowManager.Instance != this)
+		if(Instance != this)
 		{
 			Destroy(this);
-			return;
 		}
+
+		currentScene = SceneManager.GetActiveScene().name;
 		DontDestroyOnLoad(gameObject);
-		LoadScene(scenes[0]);
+
+		if (startGame)
+		{
+			LoadScene(scenes[0]);
+		}
 	}
 
 	public void ResetScene()
 	{
-		if(currentScene == null)
-		{
-			currentScene = SceneManager.GetActiveScene().name;
-		}
-		LoadScene(currentScene);
+		LoadScene(scenes[currentSceneIndex]);
 	}
 
 	public void LoadNextLevel()

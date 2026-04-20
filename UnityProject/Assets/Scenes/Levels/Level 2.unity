@@ -664,6 +664,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 216dfe8daff0270478d08b92325ba82a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e4c013e85b9b3f48aba19b70ab7acff, type: 2}
     - target: {fileID: 919132149155446097, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
       propertyPath: m_Name
       value: tile slice
@@ -1309,8 +1317,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.9706907, y: 2.86, z: 1.2194396}
-  m_Center: {x: 0.04773486, y: 0, z: 0.10971981}
+  m_Size: {x: 4.1980553, y: 2.86, z: 1.2194396}
+  m_Center: {x: 0.9340535, y: 0, z: 0.1097199}
 --- !u!1001 &564196834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1870,6 +1878,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 216dfe8daff0270478d08b92325ba82a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e4c013e85b9b3f48aba19b70ab7acff, type: 2}
     - target: {fileID: 919132149155446097, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
       propertyPath: m_Name
       value: tile slice (3)
@@ -4557,8 +4573,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0880251, y: 2.86, z: 4.169383}
-  m_Center: {x: 2.4890676, y: 0, z: 0.2623031}
+  m_Size: {x: 1.088025, y: 2.86, z: 3.3655124}
+  m_Center: {x: 2.4890673, y: 0, z: 0.66423875}
 --- !u!1 &1830575371
 GameObject:
   m_ObjectHideFlags: 0
@@ -4734,6 +4750,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 216dfe8daff0270478d08b92325ba82a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e4c013e85b9b3f48aba19b70ab7acff, type: 2}
     - target: {fileID: 919132149155446097, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
       propertyPath: m_Name
       value: tile slice (1)
@@ -5235,6 +5259,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 216dfe8daff0270478d08b92325ba82a, type: 2}
+    - target: {fileID: -7511558181221131132, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6e4c013e85b9b3f48aba19b70ab7acff, type: 2}
     - target: {fileID: 919132149155446097, guid: fdf317b3656b7c54fbf43d8d85603d11, type: 3}
       propertyPath: m_Name
       value: tile slice (2)

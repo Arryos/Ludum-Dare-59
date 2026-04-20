@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
 	[SerializeField] private InputAction pauseInput;
 
 	[SerializeField] private PauseMenu pauseMenu;
+	[SerializeField] private GameObject uiCamera;
 
 	public Action<bool> onPauseToggled;
 
@@ -39,10 +40,12 @@ public class GameManager : Singleton<GameManager>
 		{
 			if (IsPaused)
 			{
+				uiCamera.SetActive(true);
 				pauseMenu.Open();
 			}
 			else
 			{
+				uiCamera.SetActive(false);
 				pauseMenu.Close();
 			}
 		}

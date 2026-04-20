@@ -152,6 +152,9 @@ public class EnemyDamagable : DamagableObject
 		cameraShake.Shake(0.2f, 0.2f);
 		deathSFX.Play();
 
+		transform.parent.GetComponent<Collider>().enabled = false;
+		collider.enabled = false;
+
 		Instantiate(deathVFXPrefab, transform);
 		deathCoroutine = StartCoroutine(DeathCoroutine());
 	}
@@ -166,6 +169,6 @@ public class EnemyDamagable : DamagableObject
 			yield return null;
 		}
 		base.Die();
-		Destroy(gameObject);
+		Destroy(transform.parent.gameObject);
 	}
 }

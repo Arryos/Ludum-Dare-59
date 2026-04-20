@@ -10,7 +10,7 @@ public class SceneFlowManager : Singleton<SceneFlowManager>
 	private int currentSceneIndex;
 
 	[SerializeField]
-	private LoadingScreen loadingScreenPrefab;
+	private LoadingScreen loadingScreen;
 
 	[Header("Level Scenes")]
 	[SerializeField]
@@ -21,7 +21,13 @@ public class SceneFlowManager : Singleton<SceneFlowManager>
 
 	private void Awake()
 	{
+		if(SceneFlowManager.Instance != this)
+		{
+			Destroy(this);
+			return;
+		}
 		DontDestroyOnLoad(gameObject);
+		LoadScene(scenes[0]);
 	}
 
 	public void ResetScene()
@@ -52,7 +58,6 @@ public class SceneFlowManager : Singleton<SceneFlowManager>
 
 	private IEnumerator LoadSceneCoroutine(string sceneName)
 	{
-		LoadingScreen loadingScreen = Instantiate(loadingScreenPrefab);
 		yield return loadingScreen.FadeIn();
 
 		if (!string.IsNullOrEmpty(currentScene))
@@ -63,11 +68,12 @@ public class SceneFlowManager : Singleton<SceneFlowManager>
 		{
 			yield return null;
 		}
+
 		currentScene = sceneName;
+		SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene));
 
 		yield return new WaitForEndOfFrame();
 		yield return loadingScreen.FadeOut();
-		Destroy(loadingScreen.gameObject);
 		Time.timeScale = 1f;
 	}
 }

@@ -60,6 +60,16 @@ namespace Audio
 		#endregion
 
 		#region MonoBehaviour Methods
+		private void Awake()
+		{
+			if (AudioManager.Instance != this)
+			{
+				Destroy(this);
+				return;
+			}
+			DontDestroyOnLoad(gameObject);
+		}
+
 		void OnDisable()
 		{
 			PlayerPrefs.SetFloat(MUSIC_KEY, musicVolume);
